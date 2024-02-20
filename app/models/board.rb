@@ -8,10 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Board < ApplicationRecord
-  
-  def post
-   the_id = self.id
-    matching_records = Post.where(board_id => the_id)
-    return matching_records
-  end 
+  validates(:name,{:presence => true, :uniqueness => true})
 end
